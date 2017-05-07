@@ -15,7 +15,7 @@
   function createNewUser($user_email,$first_name,$last_name,$password,$phone_number,$birthday,$gender){
     global $db;
     $query = 'INSERT INTO users
-                 (password, email, firstName, lastName, phoneNumber,birthday,gender)
+                 (password, email, first_name, last_name, phone_number,birthday,gender)
               VALUES
                  (:password, :user_email, :first_name, :last_name, :phone_number, :birthday, :gender)';
     $statement = $db->prepare($query);
@@ -28,5 +28,17 @@
     $statement->bindValue(':gender', $gender);
     $statement->execute();
     $statement->closeCursor();
+  }
+
+  function getTodoListForGivenUser($user_id, $status){
+    global $db;
+    $queryname = 'SELECT * FROM todos WHERE user_id = :user_id AND status = :status order by create_time';
+    $statement = $db->prepare($queryname);
+    $statement->bindvalue(':user_id',$user_id);
+    $statement->bindvalue(':status',$status);
+    $statement->execute();
+    $todo_list = $statement->fetchAll();
+    $statement->closeCursor();
+    return $todo_list;
   }
 ?>
