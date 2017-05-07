@@ -1,7 +1,6 @@
 <html>
 <body>
   <header><h1>Welcome to do list!!</h1></header>
-<main>
     <form action = "sign_up_controller.php" method="post">
       <strong>First name</strong>
       <input type = "text" name = "first_name"><br>
@@ -21,6 +20,11 @@
       <br>
       <input type = "submit" value="Submit">
     </form>
-</main>
+    <br><br>
+      <?php
+        if(isset($sign_up_error)){
+          echo $sign_up_error;
+        }
+      ?>
 </body>
 </html>

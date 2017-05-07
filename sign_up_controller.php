@@ -9,8 +9,10 @@
   $statement->closeCursor();
 
   if($user_present['user_present'] == 0){
+    //make entry into the database
     include('todo_list.php');
   }else{
-    include('sign_up_error.php');
+    $sign_up_error = 'Email already exists in system. Please try a new one';
+    include('sign_up.php');
   }
 ?>
