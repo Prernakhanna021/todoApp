@@ -1,14 +1,9 @@
 <?php
-  require_once('database_connection.php');
+  require_once('database_functions.php');
   $user_email=filter_input(INPUT_POST, 'user_email');
   $password=filter_input(INPUT_POST, 'password');
 
-  $queryname = 'SELECT * FROM users WHERE email = :user_email';
-  $statement = $db->prepare($queryname);
-  $statement->bindvalue(':user_email',$user_email);
-  $statement->execute();
-  $user_present = $statement->fetch();
-  $statement->closeCursor();
+  $user_present = getUserForGivenEmail($user_email);
 
   if($user_present == null || count($user_present) == 0){
     $sign_in_error = "Email address does not exist";

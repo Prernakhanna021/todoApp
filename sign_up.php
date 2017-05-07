@@ -10,13 +10,13 @@
       <input type = "email" name = "user_email" placeholder="Enter a valid email"><br>
       <strong>Password</strong>
       <input type = "password" name = "password"><br>
-      <strong>Phone Number(format: xxxx-xxx-xxxx)</strong>
-      <input type="tel" pattern="^\d{4}-\d{3}-\d{4}$"><br>
+      <strong>Phone Number(format: xxx-xxx-xxxx)</strong>
+      <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name = "user_phone"><br>
       <strong>Birthday</strong>
       <input type="Date" name = "user_birthday"><br>
       <strong>Gender</strong>
-      <input type="radio" name="gender" value="male" checked> Male
-      <input type="radio" name="gender" value="female"> Female
+      <input type="radio" name="gender" value="M" checked> Male
+      <input type="radio" name="gender" value="F"> Female
       <br>
       <input type = "submit" value="Submit">
     </form>
