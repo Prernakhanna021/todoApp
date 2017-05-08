@@ -1,18 +1,18 @@
-<html>
-<body>
+<?php include 'header.php'; ?>
+  <br><br>
   <form action = "sign_in_controller.php" method="post">
-    <strong>Email</strong>
-    <input type = "email" name = "user_email" placeholder="Enter a valid email"><br>
-    <strong>Password</strong>
-    <input type = "password" name = "password"><br>
-    <input type = "submit" value="Login">
+    <strong>Email</strong><br>
+    <input type = "email" name = "user_email"><br><br>
+    <strong>Password</strong><br>
+    <input type = "password" name = "password"><br><br>
+    <input style="align:center" type = "submit" value="Login">
   </form>
-  <p>New User? <a href="sign_up.php">Sign Up</a></p>
+  <br><br>
+  <p>New User ? <a href="sign_up.php">Sign Up</a></p>
   <br><br>
   <?php
     if(isset($sign_in_error)){
       echo $sign_in_error;
     }
   ?>
-</body>
-</html>
+<?php include 'footer.php'; ?>

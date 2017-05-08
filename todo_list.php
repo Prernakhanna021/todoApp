@@ -3,18 +3,15 @@
   $completed_todo_list = getTodoListForGivenUser($user['id'],"C");
   $incomplete_todo_list = getTodoListForGivenUser($user['id'],"N");
 ?>
-<html>
-  <body>
-    <h1>Welcome <?php echo $user['first_name']." ".$user['last_name'];?></h1>
+<?php include 'header.php'; ?>
+      <?php echo $user['first_name']." ".$user['last_name'];?>
+      <br>
+      <a style = "padding:10px" href="index.php">logout</a>
 
     <br><br>
-    <h3>To-do items</h3>
+    <h4>To-do items</h3>
 
     <table>
-          <tr>
-            <th>ToDo Item</th>
-            <th>&nbsp;</th>
-          </tr>
           <?php foreach($incomplete_todo_list as $todo) : ?>
           <tr>
               <td>
@@ -33,12 +30,8 @@
     </table>
 
     <br><br>
-    <h3>Completed To-do items</h3>
+    <h4>Completed To-do items</h3>
     <table>
-          <tr>
-            <th>ToDo Item</th>
-            <th>&nbsp;</th>
-          </tr>
           <?php foreach($completed_todo_list as $todo) : ?>
           <tr>
               <td>
@@ -54,15 +47,11 @@
           </tr>
           <?php endforeach; ?>
     </table>
-
-    <h2>Add Todo Item</h2>
-
+    <br><br><br>
     <form action="todo_controller.php" method="post">
       <label>Todo Item</label>
-      <input type="text" name="todo_item"><br>
+      <input type="text" name="todo_item">
       <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
       <input name="actionBtn" type="submit" value="add">
     </form>
-
-  </body>
-</html>
+<?php include 'footer.php'; ?>

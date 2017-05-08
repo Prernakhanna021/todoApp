@@ -1,23 +1,21 @@
-<html>
-<body>
-  <header><h1>Welcome to do list!!</h1></header>
+<?php include 'header.php'; ?>
     <form action = "sign_up_controller.php" method="post">
-      <strong>First name</strong>
-      <input type = "text" name = "first_name"><br>
-      <strong>Last name</strong>
-      <input type = "text" name = "last_name"><br>
-      <strong>Email</strong>
-      <input type = "email" name = "user_email" placeholder="Enter a valid email"><br>
-      <strong>Password</strong>
-      <input type = "password" name = "password"><br>
-      <strong>Phone Number(format: xxx-xxx-xxxx)</strong>
-      <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name = "user_phone"><br>
-      <strong>Birthday</strong>
-      <input type="Date" name = "user_birthday"><br>
-      <strong>Gender</strong>
+      <strong>First name</strong><br>
+      <input type = "text" name = "first_name"><br><br>
+      <strong>Last name</strong><br>
+      <input type = "text" name = "last_name"><br><br>
+      <strong>Email</strong><br>
+      <input type = "email" name = "user_email" placeholder="Enter a valid email"><br><br>
+      <strong>Password</strong><br>
+      <input type = "password" name = "password"><br><br>
+      <strong>Phone Number(xxx-xxx-xxxx)</strong><br>
+      <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name = "user_phone"><br><br>
+      <strong>Birthday</strong><br>
+      <input type="Date" name = "user_birthday"><br><br>
+      <strong>Gender</strong><br>
       <input type="radio" name="gender" value="M" checked> Male
       <input type="radio" name="gender" value="F"> Female
-      <br>
+      <br><br>
       <input type = "submit" value="Submit">
     </form>
     <br><br>
@@ -26,5 +24,4 @@
           echo $sign_up_error;
         }
       ?>
-</body>
-</html>
+<?php include 'footer.php'; ?>
