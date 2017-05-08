@@ -72,4 +72,13 @@
     $statement->execute();
     $statement->closeCursor();
   }
+
+  function deleteTodo($todo_id){
+    global $db;
+    $query = 'DELETE FROM todos WHERE id = :todo_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':todo_id', $todo_id);
+    $statement->execute();
+    $statement->closeCursor();
+  }
 ?>
