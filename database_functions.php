@@ -62,4 +62,14 @@
     $statement->execute();
     $statement->closeCursor();
   }
+
+  function updateToDoItem($todo_id,$todo_item){
+    global $db;
+    $query = 'UPDATE todos SET todo_item = :todo_item WHERE id = :todo_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':todo_id', $todo_id);
+    $statement->bindValue(':todo_item', $todo_item);
+    $statement->execute();
+    $statement->closeCursor();
+  }
 ?>
