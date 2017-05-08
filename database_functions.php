@@ -7,9 +7,20 @@
     $statement = $db->prepare($queryname);
     $statement->bindvalue(':user_email',$user_email);
     $statement->execute();
-    $user_present = $statement->fetch();
+    $user = $statement->fetch();
     $statement->closeCursor();
-    return $user_present;
+    return $user;
+  }
+
+  function getUserForGivenId($user_id){
+    global $db;
+    $queryname = 'SELECT * FROM users WHERE id = :user_id';
+    $statement = $db->prepare($queryname);
+    $statement->bindvalue(':user_id',$user_id);
+    $statement->execute();
+    $user = $statement->fetch();
+    $statement->closeCursor();
+    return $user;
   }
 
   function createNewUser($user_email,$first_name,$last_name,$password,$phone_number,$birthday,$gender){
@@ -40,5 +51,15 @@
     $todo_list = $statement->fetchAll();
     $statement->closeCursor();
     return $todo_list;
+  }
+
+  function addTodoForGivenUser($user_id, $todo_item){
+    global $db;
+    $query = 'INSERT INTO todos (user_id, todo_item) VALUES (:user_id, :todo_item)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $user_id);
+    $statement->bindValue(':todo_item', $todo_item);
+    $statement->execute();
+    $statement->closeCursor();
   }
 ?>
