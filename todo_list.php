@@ -24,6 +24,7 @@
                   <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
                   <input name="actionBtn" type="submit" value="edit">
                   <input name="actionBtn" type="submit" value="delete">
+                  <input name="actionBtn" type="submit" value="completed">
                 </form>
               </td>
           </tr>

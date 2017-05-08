@@ -81,4 +81,14 @@
     $statement->execute();
     $statement->closeCursor();
   }
+
+  function updateToDoStatus($todo_id, $status){
+    global $db;
+    $query = 'UPDATE todos SET status = :status WHERE id = :todo_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':status', $status);
+    $statement->bindValue(':todo_id', $todo_id);
+    $statement->execute();
+    $statement->closeCursor();
+  }
 ?>

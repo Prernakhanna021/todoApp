@@ -13,6 +13,8 @@
     updateToDoItem($todo_id,$todo_item);
   }elseif ($action == "delete") {
     deleteTodo($todo_id);
+  }elseif($action == "completed"){
+    updateToDoStatus($todo_id,'C');
   }
   include('todo_list.php');
 ?>
