@@ -12,21 +12,23 @@
     <h4>To-do items</h3>
 
     <table>
-          <?php foreach($incomplete_todo_list as $todo) : ?>
-          <tr>
-              <td>
-                <form action="todo_controller.php" method="post">
-                  <input type="text" name ="todo_item" value = "<?php echo $todo['todo_item'];?>">
-                  <input type="hidden" name="todo_id" value="<?php echo $todo['id']; ?>">
-                  <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                  <input name="actionBtn" type="submit" value="edit">
-                  <input name="actionBtn" type="submit" value="delete">
-                  <input name="actionBtn" type="submit" value="completed">
-                </form>
-              </td>
-          </tr>
-          </tr>
-          <?php endforeach; ?>
+        <?php foreach($incomplete_todo_list as $todo) : ?>
+        <tr>
+            <td>
+              <form action="todo_controller.php" method="post">
+                <input type="text" name ="todo_item" value = "<?php echo $todo['todo_item'];?>">
+                <input type="date" name ="due_date" value = "<?php echo $todo['due_date'];?>">
+                <input type="time" name ="due_time" value = "<?php echo $todo['due_time'];?>">
+                <input type="hidden" name="todo_id" value="<?php echo $todo['id']; ?>">
+                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                <input name="actionBtn" type="submit" value="edit">
+                <input name="actionBtn" type="submit" value="delete">
+                <input name="actionBtn" type="submit" value="completed">
+              </form>
+            </td>
+        </tr>
+        </tr>
+        <?php endforeach; ?>
     </table>
 
     <br><br>
@@ -49,8 +51,7 @@
     </table>
     <br><br><br>
     <form action="todo_controller.php" method="post">
-      <label>Todo Item</label>
-      <input type="text" name="todo_item">
+      <label>Add Todo Item</label>
       <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
       <input name="actionBtn" type="submit" value="add">
     </form>

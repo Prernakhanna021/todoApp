@@ -43,7 +43,9 @@
 
   function getTodoListForGivenUser($user_id, $status){
     global $db;
-    $queryname = 'SELECT * FROM todos WHERE user_id = :user_id AND status = :status order by create_time';
+    $queryname = 'SELECT * FROM todos
+                  WHERE user_id = :user_id AND status = :status
+                  order by due_date, due_time';
     $statement = $db->prepare($queryname);
     $statement->bindvalue(':user_id',$user_id);
     $statement->bindvalue(':status',$status);
@@ -53,12 +55,17 @@
     return $todo_list;
   }
 
-  function addTodoForGivenUser($user_id, $todo_item){
+  function addTodoForGivenUser($user_id, $todo_item, $due_date, $due_time){
     global $db;
-    $query = 'INSERT INTO todos (user_id, todo_item) VALUES (:user_id, :todo_item)';
+    $query = 'INSERT INTO todos
+                (user_id, todo_item, due_date, due_time)
+              VALUES
+                (:user_id, :todo_item, :due_date, :due_time)';
     $statement = $db->prepare($query);
     $statement->bindValue(':user_id', $user_id);
     $statement->bindValue(':todo_item', $todo_item);
+    $statement->bindValue(':due_date', $due_date);
+    $statement->bindValue(':due_time', $due_time);
     $statement->execute();
     $statement->closeCursor();
   }
