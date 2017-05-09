@@ -6,15 +6,14 @@
   $todo_id = filter_input(INPUT_POST, 'todo_id');
   $user = getUserForGivenId($user_id);
 
-  if($action == "add"){
+  if($action == "Add"){
     include('todo_add_view.php');
-  }elseif ($action == "edit"){
+  }elseif ($action == "Edit"){
     include('todo_edit_view.php');
-    //updateToDoItem($todo_id,$todo_item);
-  }elseif ($action == "delete") {
+  }elseif ($action == "Delete") {
     deleteTodo($todo_id);
     include('todo_list_view.php');
-  }elseif($action == "completed"){
+  }elseif($action == "Completed"){
     updateToDoStatus($todo_id,'C');
     include('todo_list_view.php');
   }

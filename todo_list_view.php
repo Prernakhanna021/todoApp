@@ -21,9 +21,9 @@
                 <input type="time" name ="due_time" value = "<?php echo $todo['due_time'];?>">
                 <input type="hidden" name="todo_id" value="<?php echo $todo['id']; ?>">
                 <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                <input name="actionBtn" type="submit" value="edit">
-                <input name="actionBtn" type="submit" value="delete">
-                <input name="actionBtn" type="submit" value="completed">
+                <input name="actionBtn" type="submit" value="Edit">
+                <input name="actionBtn" type="submit" value="Delete">
+                <input name="actionBtn" type="submit" value="Completed">
               </form>
             </td>
         </tr>
@@ -41,17 +41,17 @@
                   <input type="text" name ="todo_item" value = "<?php echo $todo['todo_item'];?>">
                   <input type="hidden" name="todo_id" value="<?php echo $todo['id']; ?>">
                   <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                  <input name="actionBtn" type="submit" value="edit">
-                  <input name="actionBtn" type="submit" value="delete">
+                  <input name="actionBtn" type="submit" value="Edit">
+                  <input name="actionBtn" type="submit" value="Delete">
                 </form>
               </td>
           </tr>
           </tr>
           <?php endforeach; ?>
     </table>
-    <br><br><br>
+    <br><br>
     <form action="todo_list_controller.php" method="post">
       <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-      <input name="actionBtn" type="submit" value="Add ToDo">
+      <input name="actionBtn" type="submit" value="Add">
     </form>
 <?php include 'footer.php'; ?>
