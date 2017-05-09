@@ -12,9 +12,9 @@
     $gender = filter_input(INPUT_POST, 'gender');
     createNewUser($user_email,$first_name,$last_name,$password,$phone_number,$birthday,$gender);
     $user = getUserForGivenEmail($user_email);
-    include('todo_list.php');
+    include('todo_list_view.php');
   }else{
     $sign_up_error = 'Email already exists in system. Please try a new one';
-    include('sign_up.php');
+    include('sign_up_view.php');
   }
 ?>

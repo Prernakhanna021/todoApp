@@ -8,7 +8,7 @@
     <input style="align:center" type = "submit" value="Login">
   </form>
   <br><br>
-  <p>New User ? <a href="sign_up.php">Sign Up</a></p>
+  <p>New User ? <a href="sign_up_view.php">Sign Up</a></p>
   <br><br>
   <?php
     if(isset($sign_in_error)){

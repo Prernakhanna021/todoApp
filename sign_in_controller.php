@@ -12,6 +12,6 @@
     $sign_in_error = "Incorrect password entered";
     include('index.php');
   }else{
-    include('todo_list.php');
+    include('todo_list_view.php');
   }
 ?>

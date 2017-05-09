@@ -16,5 +16,5 @@
   }elseif($action == "completed"){
     updateToDoStatus($todo_id,'C');
   }
-  include('todo_list.php');
+  include('todo_list_view.php');
 ?>
