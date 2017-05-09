@@ -5,7 +5,7 @@
       <strong>Last name</strong><br>
       <input type = "text" name = "last_name"><br><br>
       <strong>Email</strong><br>
-      <input type = "email" name = "user_email" placeholder="Enter a valid email"><br><br>
+      <input type = "email" name = "user_email"><br><br>
       <strong>Password</strong><br>
       <input type = "password" name = "password"><br><br>
       <strong>Phone Number(xxx-xxx-xxxx)</strong><br>
