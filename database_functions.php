@@ -98,4 +98,31 @@
     $statement->execute();
     $statement->closeCursor();
   }
+
+  function updateToDoWithAllFields($todo_id, $todo_item, $due_date, $due_time){
+    global $db;
+    $query = 'UPDATE todos
+              SET todo_item = :todo_item,
+              due_date = :due_date,
+              due_time = :due_time
+              WHERE id = :todo_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':todo_id', $todo_id);
+    $statement->bindValue(':todo_item', $todo_item);
+    $statement->bindValue(':due_time', $due_time);
+    $statement->bindValue(':due_date', $due_date);
+    $statement->execute();
+    $statement->closeCursor();
+  }
+
+  function getTodoForGivenToDoId($todo_id){
+    global $db;
+    $queryname = 'SELECT * FROM todos WHERE id = :todo_id';
+    $statement = $db->prepare($queryname);
+    $statement->bindvalue(':todo_id',$todo_id);
+    $statement->execute();
+    $todo = $statement->fetch();
+    $statement->closeCursor();
+    return $todo;
+  }
 ?>

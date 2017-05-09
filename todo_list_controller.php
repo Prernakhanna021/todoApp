@@ -9,7 +9,8 @@
   if($action == "add"){
     include('todo_add_view.php');
   }elseif ($action == "edit"){
-    updateToDoItem($todo_id,$todo_item);
+    include('todo_edit_view.php');
+    //updateToDoItem($todo_id,$todo_item);
   }elseif ($action == "delete") {
     deleteTodo($todo_id);
     include('todo_list_view.php');
